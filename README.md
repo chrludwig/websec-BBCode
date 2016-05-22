@@ -12,10 +12,13 @@ expect security issues, I left them in on purpose!!
 
 1. Make sure you have JDK >= 7 installed
    (Both OpenJDK and Oracle's JDK should work.)
-2. In the top level directory, run `./mvnw clean install`.
+2. Download and, if necessary, unpack the project source code
+   (either as a Git repository clone or as a ZIP archive).
+3. In the project top level directory, run `./mvnw clean install`.
    (On its first run, this will also download Maven.)
-3. Run the application in its embedded Tomcat by calling
+4. Run the application in its embedded Tomcat by calling
    `java -jar target/BBCode.war`. Alternatively, you can also
    deploy target/BBCode.war into a standalone Java Web container
    (Tomcat, Jetty, Glassfish, ...) of your choice.
+5. Navigate your browser to <http://localhost:8080/>
 
