@@ -10,7 +10,8 @@ expect security issues, I left them in on purpose!!
 
 ## Build & Install
 
-1. Make sure you have JDK 7 installed.
+1. Make sure you have JDK >= 7 installed
+   (Both OpenJDK and Oracle's JDK should work.)
 2. In the top level directory, run `./mvnw clean install`.
    (On its first run, this will also download Maven.)
 3. Run the application in its embedded Tomcat by calling
