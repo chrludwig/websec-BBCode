@@ -5,12 +5,16 @@ users markup input with
 [BBCode](https://en.wikipedia.org/wiki/BBCode). The BBCode
 implementation is [KefirBB](http://kefirsf.org/kefirbb/).
 
-The application is intended for use in the lab of my Web Security - so
-expect security issues!
+The application is intended for use in the lab of my Web Security course - so
+expect security issues, I left them in on purpose!!
 
 ## Build & Install
 
-1. Make sure you have JDK 7 or newer as well as Maven 3 installed.
-2. In the top level directory, run `mvn clean install`.
-3. Deploy target/BBCode.war into a Java Web container (Tomcat, Jetty, Glassfish, ...)
+1. Make sure you have JDK 7 installed.
+2. In the top level directory, run `./mvnw clean install`.
+   (On its first run, this will also download Maven.)
+3. Run the application in its embedded Tomcat by calling
+   `java -jar target/BBCode.war`. Alternatively, you can also
+   deploy target/BBCode.war into a standalone Java Web container
+   (Tomcat, Jetty, Glassfish, ...) of your choice.
 

@@ -1,39 +1,34 @@
 package de.chludwig.websec.bbcode;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration("file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml")
+@SpringApplicationConfiguration(BbCodeApplication.class)
+@WebIntegrationTest(randomPort = true)
+@DirtiesContext
 public class AppTests {
-    private MockMvc mockMvc;
 
-    @SuppressWarnings("SpringJavaAutowiringInspection")
-    @Autowired
-    protected WebApplicationContext wac;
-
-    @Before
-    public void setup() {
-        this.mockMvc = webAppContextSetup(this.wac).build();
-    }
+    @Value("${local.server.port}")
+    private int port;
 
     @Test
-    public void simple() throws Exception {
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("bbcodeform"));
+    public void testJspWithEl() throws Exception {
+        ResponseEntity<String> entity = new TestRestTemplate()
+                .getForEntity("http://localhost:" + this.port, String.class);
+        assertEquals(HttpStatus.OK, entity.getStatusCode());
+        assertTrue("Wrong body:\n" + entity.getBody(),
+                   entity.getBody().contains("<title>BBCode Test Form</title>"));
     }
 }

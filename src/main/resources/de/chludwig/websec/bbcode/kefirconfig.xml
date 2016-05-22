@@ -101,7 +101,7 @@
         <template>&lt;i&gt;<var/>&lt;/i&gt;</template>
     </code>
 
-    <!-- Links. http, https, malto protocols -->
+    <!-- Links. http, https, mailto protocols -->
     <scope name="url" parent="basic">
         <coderef name="bold"/>
         <coderef name="i"/>
