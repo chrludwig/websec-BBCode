@@ -17,8 +17,6 @@ expect security issues, I left them in on purpose!!
 3. In the project top level directory, run `./mvnw clean install`.
    (On its first run, this will also download Maven.)
 4. Run the application in its embedded Tomcat by calling
-   `java -jar target/BBCode.war`. Alternatively, you can also
-   deploy target/BBCode.war into a standalone Java Web container
-   (Tomcat, Jetty, Glassfish, ...) of your choice.
+   `java -jar target/BBCode.jar`.
 5. Navigate your browser to <http://localhost:8080/>
 
