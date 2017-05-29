@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.chludwig.websec</groupId>
     <artifactId>BBCode</artifactId>
-    <packaging>war</packaging>
-    <version>1.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <version>1.2-SNAPSHOT</version>
     <name>BBCode</name>
     <description>WebSec Vulnerable BBCode Web Application</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.5.RELEASE</version>
+        <version>1.5.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -24,13 +24,13 @@
         <dependency>
             <groupId>org.kefirsf</groupId>
             <artifactId>kefirbb</artifactId>
-            <version>1.2</version>
+            <version>1.5</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.5</version>
         </dependency>
 
         <dependency>
@@ -41,13 +41,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
